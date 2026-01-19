@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta name="description" content="اختبار ذكاء عربي احترافي من 50 سؤال مع ترتيب عالمي وخلفيات ديناميكية">
+<meta charset="UTF-8">
+<meta name="description" content="اختبار ذكاء عربي احترافي من 50 سؤال مع ترتيب عالمي وخلفيات ديناميكية">
 <meta name="keywords" content="اختبار ذكاء, IQ test عربي, ذكاء, العاب عقل">
 <meta name="robots" content="index, follow">
-
-    <meta name="google-site-verification" content="tRahjYQ7NZCtVirh6tw7KFYWLoImKTKipPUz1JZzGzM" />
-<meta charset="UTF-8">
+<meta name="google-site-verification" content="tRahjYQ7NZCtVirh6tw7KFYWLoImKTKipPUz1JZzGzM" />
 <title>🧠 اختبار الذكاء العربي المتقدم</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -27,7 +26,6 @@ body{
     padding:40px;
     border-radius:25px;
     box-shadow:0 0 40px rgba(79,195,255,.25), inset 0 0 25px rgba(255,255,255,.05);
-    transition:background 1s ease;
 }
 h1{
     color:#4fc3ff;
@@ -48,14 +46,8 @@ h1{
     transition:width .5s ease, background .5s ease;
     box-shadow:0 0 12px #4fc3ff;
 }
-#quiz{
-    position:relative;
-    min-height:200px;
-}
-#question{
-    margin-bottom:20px;
-    font-size:22px;
-}
+#quiz{position:relative; min-height:200px;}
+#question{margin-bottom:20px; font-size:22px;}
 .option{
     background:rgba(27,47,74,.85);
     padding:16px 18px;
@@ -74,115 +66,49 @@ h1{
     inset:0;
     background:radial-gradient(circle,#fff 10%,transparent 11%);
     opacity:0;
-    transition:.4s;
 }
-.option:hover{
-    background:#4fc3ff;
-    color:#000;
-    transform:scale(1.02);
-    box-shadow:0 0 18px rgba(79,195,255,.8);
-}
-.option:hover::after{opacity:.15;}
-.option.correct{background:#2ecc71 !important;color:#000;animation:pulse .5s;}
-.option.wrong{background:#e74c3c !important;animation:shake .5s;}
-.option.hard{box-shadow:0 0 18px yellow;}
-button{
-    background:linear-gradient(135deg,#4fc3ff,#9be7ff);
-    border:none;
-    padding:14px 30px;
-    border-radius:16px;
-    cursor:pointer;
-    font-size:18px;
-    margin-top:20px;
-    box-shadow:0 0 20px rgba(79,195,255,.7);
-    transition:.25s;
-}
-button:hover{transform:scale(1.05);}
-#result{animation:fadeInUp .7s ease;}
-table{width:100%;border-collapse:collapse;margin-top:15px;}
-th,td{border-bottom:1px solid #355;padding:12px;text-align:center;font-size:16px;}
-
-/* Animations */
-@keyframes slideIn{from{opacity:0;transform:translateX(50px)}to{opacity:1;transform:translateX(0)}}
-@keyframes fadeInUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
-@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.05)}100%{transform:scale(1)}}
-@keyframes shake{0%{transform:translateX(0)}25%{transform:translateX(-5px)}50%{transform:translateX(5px)}75%{transform:translateX(-5px)}100%{transform:translateX(0)}}
-@keyframes fadeSlideUp {0%{opacity:0; transform:translateY(30px);}100%{opacity:1; transform:translateY(0);}}
-.table-animate {animation: fadeSlideUp 0.7s ease forwards;}
+.option.correct{background:green;}
+.option.wrong{background:red;}
 </style>
 </head>
 <body>
-
 <div class="container">
 <h1>🧠 اختبار الذكاء العربي المتقدم</h1>
-<p style="text-align:center;opacity:.8">50 سؤال متنوع + ترتيب عالمي</p>
-
 <div class="progress"><div id="bar"></div></div>
-
 <div id="quiz">
-    <h3 id="question"></h3>
+    <div id="question"></div>
     <div id="options"></div>
 </div>
-
-<div id="result" style="display:none;"></div>
+<div id="result" style="display:none"></div>
 </div>
 
 <script>
-// ==================== أسئلة 50 سؤال ====================
+// ==================== الأسئلة ====================
 const questions=[
-/* سهلة ⭐ */ 
-{q:"⭐ 2 + 3 = ؟",o:["4","5","6","7"],a:1,l:1},{q:"⭐ كم عدد أيام الأسبوع؟",o:["5","6","7","8"],a:2,l:1},
-{q:"⭐ ما عكس كلمة (سريع)؟",o:["قوي","بطيء","كبير","خفيف"],a:1,l:1},{q:"⭐ كم عدد الحروف في كلمة (عقل)؟",o:["2","3","4","5"],a:1,l:1},
-{q:"⭐ 5 × 2 = ؟",o:["7","8","9","10"],a:3,l:1},{q:"⭐ أيهم لون؟",o:["تفاح","أحمر","كرسي","كتاب"],a:1,l:1},
-{q:"⭐ 10 ÷ 2 = ؟",o:["2","3","4","5"],a:3,l:1},{q:"⭐ كم عدد أشهر السنة؟",o:["10","11","12","13"],a:2,l:1},
-{q:"⭐ ما عكس كلمة (كبير)؟",o:["طويل","صغير","ثقيل","قوي"],a:1,l:1},{q:"⭐ 3 + 7 = ؟",o:["9","10","11","12"],a:1,l:1},
-
-/* متوسطة ⚡ */
-{q:"⚡ ما الرقم التالي؟ 2 - 4 - 8 - 16 - ؟",o:["24","30","32","36"],a:2,l:2},{q:"⚡ أيهم عدد أولي؟",o:["9","15","17","21"],a:2,l:2},
-{q:"⚡ إذا كان اليوم الاثنين، فما اليوم بعد 7 أيام؟",o:["الاثنين","الثلاثاء","الأحد","السبت"],a:0,l:2},{q:"⚡ 5² = ؟",o:["10","15","20","25"],a:3,l:2},
-{q:"⚡ أي شكل له 4 أضلاع؟",o:["مثلث","دائرة","مربع","خماسي"],a:2,l:2},{q:"⚡ ما العدد الناقص؟ 1 - 4 - 9 - ؟",o:["12","14","16","18"],a:2,l:2},
-{q:"⚡ كم دقيقة في ساعتين؟",o:["60","90","120","150"],a:2,l:2},{q:"⚡ أيهم ليس كوكبًا؟",o:["المريخ","زحل","الشمس","الأرض"],a:2,l:2},
-{q:"⚡ 9 × 3 − 6 = ؟",o:["15","18","21","24"],a:2,l:2},{q:"⚡ أيهم أثقل؟",o:["كغ","غرام","طن","ملغ"],a:2,l:2},
-
-/* صعبة 🔥 */
-{q:"🔥 إذا كان 3 = 9 و 4 = 16 فكم 7 = ؟",o:["42","49","56","63"],a:1,l:3},{q:"🔥 ما العدد الناقص؟ 2 - 6 - 12 - 20 - ؟",o:["28","30","32","36"],a:1,l:3},
-{q:"🔥 كم عدد القواسم للعدد 12؟",o:["4","5","6","7"],a:2,l:3},{q:"🔥 ما ناتج: 2³ + 3² ؟",o:["13","15","17","19"],a:2,l:3},
-{q:"🔥 إذا كان x = 3، فما قيمة 2x² ؟",o:["12","15","18","21"],a:2,l:3},{q:"🔥 ما الكلمة المختلفة؟",o:["عين","أنف","أذن","يد"],a:3,l:3},
-{q:"🔥 كم زاوية في المثلث؟",o:["2","3","4","5"],a:1,l:3},{q:"🔥 أكمل: A C E G ?",o:["H","I","J","K"],a:1,l:3},
-{q:"🔥 أيهم يقبل القسمة على 3؟",o:["14","16","18","20"],a:2,l:3},{q:"🔥 0.5 = ؟",o:["1/4","1/2","2/3","3/4"],a:1,l:3},
-
-/* صعبة جدًا 🌟 */
-{q:"🌟 ما العدد التالي؟ 1 - 11 - 21 - 1211 - ؟",o:["111221","212111","121121","1112211"],a:0,l:4},
-{q:"🌟 أي رقم لا ينتمي؟ 2 - 3 - 5 - 11 - 17",o:["2","3","11","17"],a:3,l:4},{q:"🌟 ما ناتج: (5×5) − (3×4) ؟",o:["7","9","11","13"],a:1,l:4},
-{q:"🌟 كم عدد التباديل لـ 3 عناصر؟",o:["3","4","5","6"],a:3,l:4},{q:"🌟 إذا كان مجموع عددين = 20 والفرق = 4، فما العدد الأكبر؟",o:["10","11","12","13"],a:2,l:4},
-{q:"🌟 ما الرقم التالي في النمط: 2,4,8,32,64,؟",o:["128","96","72","100"],a:0,l:4},
-{q:"🌟 أيهم أكبر؟",o:["5","10","15","20"],a:3,l:4},{q:"🌟 ما ناتج 3³ + 4² ؟",o:["19","25","31","29"],a:2,l:4},
-{q:"🌟 أكمل: Z X V T ?",o:["R","S","U","Q"],a:0,l:4},{q:"🌟 إذا كان 7×7=49، فما ناتج 7×8؟",o:["55","56","57","54"],a:1,l:4},
-
-/* صعبة جدًا جدًا 🌈 */
-{q:"🌈 ما العدد التالي في سلسلة: 1,1,2,3,5,8,13,؟",o:["21","20","22","19"],a:0,l:5},
-{q:"🌈 ما ناتج: 2⁴ + 3³ ؟",o:["35","27","29","34"],a:0,l:5},{q:"🌈 أي رقم لا ينتمي؟ 2,3,5,9,11",o:["2","3","9","11"],a:2,l:5},
-{q:"🌈 أكمل النمط: 1,4,9,16,25,؟",o:["36","30","35","32"],a:0,l:5},{q:"🌈 إذا كان 5x-3=12 فما x؟",o:["3","2","4","5"],a:0,l:5},
-{q:"🌈 ما العدد الناقص: 7,14,28,?,112",o:["56","48","52","60"],a:0,l:5},{q:"🌈 أكمل: J F M A M ?",o:["J","J","J","J"],a:0,l:5},
-{q:"🌈 ما الرقم التالي في النمط: 3,6,12,24,?",o:["48","44","50","46"],a:0,l:5},{q:"🌈 كم زاوية في مضلع منتظم بخمس أضلاع؟",o:["108","100","110","120"],a:0,l:5},
-{q:"🌈 إذا كان 9×9=81، فما 11×11؟",o:["121","111","122","120"],a:0,l:5}
+{q:"🔥 كم عدد القواسم للعدد 12؟",o:["4","5","6","7"],a:2,l:3},
+{q:"🔥 ما ناتج: 2³ + 3² ؟",o:["13","15","17","19"],a:2,l:3},
+{q:"🔥 إذا كان x = 3، فما قيمة 2x² ؟",o:["12","15","18","21"],a:2,l:3},
+{q:"🔥 ما الكلمة المختلفة؟",o:["عين","أنف","أذن","يد"],a:3,l:3},
+{q:"🔥 كم زاوية في المثلث؟",o:["2","3","4","5"],a:1,l:3}
 ];
 
 // ==================== المتغيرات والدوال ====================
-let i=0, score=0, maxScore=150;
+let i=0, score=0;
+const maxScore = questions.reduce((s,q)=>s+q.l,0);
 const qEl=document.getElementById("question");
 const oEl=document.getElementById("options");
 const bar=document.getElementById("bar");
 const container=document.querySelector("body");
 const res=document.getElementById("result");
 
+// AudioContext واحد فقط
+const audioCtx = new (window.AudioContext||window.webkitAudioContext)();
 function beep(freq=440,duration=150){
-    const osc=new (window.AudioContext||window.webkitAudioContext)();
-    const o=osc.createOscillator();
-    const g=osc.createGain();
-    o.connect(g); g.connect(osc.destination);
+    const o=audioCtx.createOscillator();
+    const g=audioCtx.createGain();
+    o.connect(g); g.connect(audioCtx.destination);
     o.frequency.value=freq;
-    o.start(); o.stop(osc.currentTime+duration/1000);
+    o.start(); o.stop(audioCtx.currentTime+duration/1000);
 }
 
 function setBackground(level){
@@ -197,7 +123,7 @@ function setBackground(level){
 
 function show(){
     setBackground(questions[i].l);
-    bar.style.width=(i/50*100)+"%";
+    bar.style.width = ((i+1)/questions.length*100)+"%";
     qEl.textContent=questions[i].q;
     oEl.innerHTML="";
     questions[i].o.forEach((x,j)=>{
@@ -205,7 +131,6 @@ function show(){
         d.className="option";
         d.textContent=x;
         if(questions[i].l>=3) d.classList.add("hard");
-        d.style.animation="slideIn .4s ease";
         d.onclick=()=>check(j,d);
         oEl.appendChild(d);
     });
@@ -227,6 +152,7 @@ function finish(){
     document.getElementById("quiz").style.display="none";
     const percent=Math.round((score/maxScore)*100);
     let name=prompt("اكتب اسمك للترتيب العالمي:");
+    if(name===null||name.trim()==="") name="لاسم مجهول";
     let rank="";
     if(percent<50) rank="ضعيف";
     else if(percent<70) rank="متوسط";
@@ -263,7 +189,5 @@ function finish(){
 
 show();
 </script>
-
 </body>
 </html>
-
